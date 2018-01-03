@@ -8,7 +8,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-
+import android.util.Log;
 
 
 import com.vagapov.amir.a2_l1_vagapov.widget.WidgetNotes;
@@ -17,7 +17,11 @@ import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity implements NavigatorNote {
 
-    private FragmentManager fm;
+
+    private static int VIEW_PAGER_POSITION = 0;
+    private static final int ANOTHER_FRAGMENT = 1;
+    private static final int VIEW_PAGER_EXIT = 100;
+
     private Fragment fragment;
     private ViewPagerAdapter adapter;
     private ViewPager viewPager;
@@ -29,7 +33,6 @@ public class MainActivity extends AppCompatActivity implements NavigatorNote {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -47,18 +50,19 @@ public class MainActivity extends AppCompatActivity implements NavigatorNote {
 
         tabLayout.setupWithViewPager(viewPager);
 
-        fm = getSupportFragmentManager();
-        /*fragment = fm.findFragmentById(R.id.container);
-
-        if (fragment == null) {
-            fragment = new ListViewFragment();
-            fm.beginTransaction().replace(R.id.container, fragment).commit();
-
-        }*/
 
         catchIntent();
     }
 
+    @Override
+    public void onBackPressed() {
+        if(VIEW_PAGER_POSITION == VIEW_PAGER_EXIT){
+            super.onBackPressed();
+        }else{
+            backToList();
+        }
+
+    }
 
     private void catchIntent() {
         if (getIntent().getType() != null && getIntent().getType().equalsIgnoreCase(OPEN_MAIN_ACTIVITY_EDIT)) {
@@ -76,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements NavigatorNote {
         fragment = OpenNoteFragment.newInstance(id);
         adapter.replaceFirstFragment(fragment, getString(R.string.your_note));
         viewPager.setAdapter(adapter);
-        //fm.beginTransaction().addToBackStack(null).add(R.id.container, fragment).commit();
+        VIEW_PAGER_POSITION = ANOTHER_FRAGMENT;
     }
 
 
@@ -85,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements NavigatorNote {
         fragment = EditNoteFragment.newInstance(id);
         adapter.replaceFirstFragment(fragment, getString(R.string.edit_task));
         viewPager.setAdapter(adapter);
-        //fm.beginTransaction().addToBackStack(null).replace(R.id.container, fragment).commit();
+        VIEW_PAGER_POSITION = ANOTHER_FRAGMENT;
     }
 
     @Override
@@ -93,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements NavigatorNote {
         fragment = EditNoteFragment.newInstance();
         adapter.replaceFirstFragment(fragment, getString(R.string.describe_note));
         viewPager.setAdapter(adapter);
-        //fm.beginTransaction().addToBackStack(null).replace(R.id.container, fragment).commit();
+        VIEW_PAGER_POSITION = ANOTHER_FRAGMENT;
     }
 
     @Override
@@ -101,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements NavigatorNote {
         fragment = new ListViewFragment();
         adapter.replaceFirstFragment(fragment, getString(R.string.your_notes));
         viewPager.setAdapter(adapter);
-        //fm.beginTransaction().addToBackStack(null).replace(R.id.container, fragment).commit();
+        VIEW_PAGER_POSITION = VIEW_PAGER_EXIT;
     }
 
 
