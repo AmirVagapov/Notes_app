@@ -39,6 +39,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
         mFragments.add(fragment);
         fragmentTitle.add(title);
     }
+
     void replaceFirstFragment(Fragment fragment, String title){
         mFragments.remove(0);
         fragmentTitle.remove(0);
