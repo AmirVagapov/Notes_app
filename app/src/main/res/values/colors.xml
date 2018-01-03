@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="blue">#5f91ca</color>
+    <color name="white">#f9f9f9</color>
+    <color name="red">#f90505</color>
+    <color name="card_view_back">#eeeeee</color>
+    <color name="black">#000</color>
+    <color name="widget_background">#b6b0b0</color>
+    <color name="tab_background">#cfd8dc</color>
+</resources>

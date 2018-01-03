@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">A2_L1_Vagapov</string>
+    <string name="edit_task">Edit Note</string>
+    <string name="add_note">Add Note</string>
+    <string name="your_note">Your Note</string>
+    <string name="describe_note">Describe your Note</string>
+    <string name="delete_selected_note">Delete selected notes</string>
+    <string name="enter_the_title">Enter the title</string>
+    <string name="enter_the_description">Enter the description</string>
+    <string name="note_count">Выбрано элементов: %s</string>
+    <string name="add_notes">Add Notes</string>
+    <string name="enter_the_address">Enter the address</string>
+    <string name="chooser_intent_text">Выберите программу:</string>
+    <string name="get_geo_location">Get your location</string>
+    <string name="title">Note\'s title:</string>
+    <string name="note_s_description">Note\'s description:</string>
+    <string name="text_view_add_notes">You have no Notes. Press \'+\'</string>
+    <string name="list_is_empty">List is empty</string>
+    <string name="your_notes">Notes</string>
+    <string name="your_notes_on_map">Notes on map</string>
+    <string name="snackbar_delete_note">You delete Note \'%s\'</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Deny</string>
+    <string name="app_label">Your Notes</string>
+    <string name="open_selected_note">Open selected note</string>
+    <string name="back">back</string>
+</resources>
